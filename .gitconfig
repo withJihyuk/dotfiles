@@ -1,0 +1,46 @@
+[column]
+  ui = auto
+[branch]
+  sort = -committerdate
+[diff]
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
+[push]
+  default = simple
+  autoSetupRemote = true
+  followTags = true
+[fetch]
+  prune = true
+  pruneTags = true
+  all = true
+[help]
+  autocorrect = prompt
+[rebase]
+  autoSquash = true
+  autoStash = true
+  updateRefs = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = withJihyuk
+	email = lead@users.noreply.github.com
+[core]
+	precomposeunicode = true
+	quotepath = false
+	excludesfile = ~/.gitignore
+	editor = nvim
+[format]
+	signoff = true
+[alias]
+	ia = !git add $(git ls-files --modified --others --exclude-standard | fzf -m)
+	id = !git diff $(git ls-files --modified --others --exclude-standard | fzf -m)
+	ir = !git reset -- $(git ls-files --modified --others --exclude-standard | fzf -m)
+	ico = !git checkout -- $(git ls-files --modified --others --exclude-standard | fzf -m)
+	gone = ! git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs -r git branch -D
+[push]
+	autoSetupRemote = true
