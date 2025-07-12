@@ -1,1 +1,1 @@
-# DotFiles
+# Dotfiles
