@@ -28,7 +28,7 @@
 	required = true
 [user]
 	name = withJihyuk
-	email = lead@users.noreply.github.com
+	email = withJihyuk@users.noreply.github.com
 [core]
 	precomposeunicode = true
 	quotepath = false
